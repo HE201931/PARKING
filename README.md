@@ -4,6 +4,6 @@
 
 PAUL Nathan
 VANDERHULST Pauline
-GHEURT Ines
+GEURTS Ines
 DEVOS Amaury
 GODEFROID Mehdi
