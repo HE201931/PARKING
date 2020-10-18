@@ -30,35 +30,77 @@ function beginWithThisFunction()
          console.log(globalArray[65][0]);
          console.log(globalArray[65][1]);
          console.log(globalArray[65][2]);
-
          globalArray[65][0] = "Volvo";
          globalArray[65][1] = "1-AAA-000";
          globalArray[65][2] = "BLACK";
          console.log(globalArray[65][0]);
          console.log(globalArray[65][1]);
          console.log(globalArray[65][2]);
-
          **/
     }
 
-function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle)
-    {
-        for(let i = 0 ; i <= globalArray1.length - 1 ; i++)
-        {
-            if (globalArray1[i][0] =="" &&  globalArray1[i][1] ==  "" )
-            {
-                globalArray1[i][0] = marqueVehicle;
-                globalArray1[i][1] = plaqueVehicle;
-                globalArray1[i][2] = colorVehicle;
-                console.log(`Véhicule ajouté à ${i}   ${globalArray1[i][0]}   ${  globalArray1[i][1]}   ${globalArray1[i][2]}`)
+function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
+	
+        if(placeNumber = "N"){      //Choix d'attribution place automatique
+			
+		for(let i = 0 ; i <= globalArray.length - 1 ; i++){
+
+            if (globalArray[i][0] =="" &&  globalArray[i][1] == "" ){
+                globalArray[i][0] = marqueVehicle;
+                globalArray[i][1] = plaqueVehicle;
+                globalArray[i][2] = colorVehicle;
+
+                console.log(`Véhicule ajouté emplacement ${i}`);
                 break;
+				//console.log(`Véhicule ajouté emplacement ${i}   ${globalArray[i][0]}   ${  globalArray[i][1]}   ${globalArray[i][2]}`
             }
-            else
-            {
-                console.log(`Cette place est déjà prise ${i} et ${globalArray1[i][0]} ${globalArray1[i][1]} ${globalArray1[i][2]}`)
+
+            else{
+                continue;
             }
 
         }
+			
+	}else{          //Si choix de place demandé par client
+		if(globalArray[placeNumber][0] ==""){
+			globalArray[placeNumber][0] = marqueVehicle;
+            globalArray[placeNumber][1] = plaqueVehicle;
+            globalArray[placeNumber][2] = colorVehicle;
+		}else{
+			console.log("Cette place est déjà prise, choix de la place la plus proche pour vous..."); 
+			for(i = placeNumber + 1; i <= globalArray.length; i++){ //Selec. auto place plus proche vers haut du tableau
+				
+			if (globalArray[i][0] == "" &&  globalArray[i][1] == "" ){
+            globalArray[i][0] = marqueVehicle;
+            globalArray[i][1] = plaqueVehicle;
+            globalArray[i][2] = colorVehicle;
+
+            console.log(`Véhicule ajouté emplacement ${i}`);
+            break;
+				
+			}else{                                 //Si tableau plein jusqu'au max du nbr de place ,parcours choix init. vers le bas
+				if(i + 1 > globalArray.length){
+					for(i = placeNumber - 1; i >= 0; i--){
+						if (globalArray[i][0] == "" &&  globalArray[i][1] == "" ){
+						globalArray[i][0] = marqueVehicle;
+						globalArray[i][1] = plaqueVehicle;
+						globalArray[i][2] = colorVehicle;
+
+						console.log(`Véhicule ajouté emplacement ${i}`); 
+						break;
+						}else{
+							continue;         //Si place prise : reitération de la boucle place suivante(i--)
+						}
+					}
+				}else{
+					continue;   //Si place prise : reitération de la boucle place suivante (i++)
+				}
+				
+			}
+			
+			}
+		}
+	}
     }
 
 
@@ -78,7 +120,7 @@ function clearPlaceInArray()//marqueVehicle , matricule)
             }
             else
             {
-                console.log(`Cette place est déjà prise ${i} e`);
+			console.log(`Cette place est déjà prise.`);
 
             }
         }
@@ -101,4 +143,13 @@ function addVehicle()
         }
         return [brandVehicle ,IDVehicle , colorVehicle];
     }
-
+	
+	
+	
+	
+	// PARTIE EXECUTION DU PROJET
+	
+	let choixPlace = prompt("Avez vous une place désirée en particulier ? ( 'N' pour choix automatique)");
+	addVehicle().addInBigArray(tabData[0],tabData[1] ,tabData[2], choixPlace); 
+	
+	
