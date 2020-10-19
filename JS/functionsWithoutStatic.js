@@ -22,8 +22,6 @@ function resetArray()
 
 function beginWithThisFunction()
     {
-
-
         if(globalArray1.every( elem => elem == undefined) == true){initializeArray();}
         let testValue = addVehicle();
         addInBigArray(testValue[0] , testValue[1] , testValue[2]);
@@ -45,56 +43,42 @@ function beginWithThisFunction()
 
 function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle)
     {
-
-
         let chooseAPlace  = confirm("Voulez-vous choisir votre place ?");
-
         if (chooseAPlace ==true)
         {
-
-
             let putANumber  = prompt("Veuillez insèrer un chiffre entre 0 et 69");
-
             if (globalArray1[putANumber][0] =="" &&  globalArray1[putANumber][1] ==  "" )
             {
                 globalArray1[putANumber][0] = marqueVehicle;
                 globalArray1[putANumber][1] = plaqueVehicle;
                 globalArray1[putANumber][2] = colorVehicle;
                 console.log(`Véhicule ajouté à ${putANumber}   ${globalArray1[putANumber][0]}   ${  globalArray1[putANumber][1]}   ${globalArray1[putANumber][2]}`)
-
             }
             else
             {
                 console.log(`Cette place est déjà prise ${putANumber} et ${globalArray1[putANumber][0]} ${globalArray1[putANumber][1]} ${globalArray1[putANumber][2]}`)
             }
-
-
         }
 
-        else{
-
-        for(let i = 0 ; i <= globalArray1.length - 1 ; i++)
-        {
-            if (globalArray1[i][0] =="" &&  globalArray1[i][1] ==  "" )
+        else
             {
-                globalArray1[i][0] = marqueVehicle;
-                globalArray1[i][1] = plaqueVehicle;
-                globalArray1[i][2] = colorVehicle;
-                console.log(`Véhicule ajouté à ${i}   ${globalArray1[i][0]}   ${  globalArray1[i][1]}   ${globalArray1[i][2]}`)
-                break;
+
+                for(let i = 0 ; i <= globalArray1.length - 1 ; i++)
+                {
+                    if (globalArray1[i][0] =="" &&  globalArray1[i][1] ==  "" )
+                    {
+                        globalArray1[i][0] = marqueVehicle;
+                        globalArray1[i][1] = plaqueVehicle;
+                        globalArray1[i][2] = colorVehicle;
+                        console.log(`Véhicule ajouté à ${i}   ${globalArray1[i][0]}   ${  globalArray1[i][1]}   ${globalArray1[i][2]}`)
+                        break;
+                    }
+                    else 
+                    {
+                         console.log(`Cette place est déjà prise ${i} et ${globalArray1[i][0]} ${globalArray1[i][1]} ${globalArray1[i][2]}`)
+                    }
+                 }
             }
-            else
-            {
-                console.log(`Cette place est déjà prise ${i} et ${globalArray1[i][0]} ${globalArray1[i][1]} ${globalArray1[i][2]}`)
-            }
-
-        }
-
-
-    }
-
-
-
     }
 
 
