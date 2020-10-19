@@ -1,18 +1,18 @@
-let globalArray1 = new Array(70 );
+let globalArray = new Array(70);
 function initializeArray(){
-        for(let i = 0 ; i <= globalArray1.length - 1 ; i++){
+        for(let i = 0 ; i <= globalArray.length - 1 ; i++){
 
-            globalArray1[i] = new Array(3);
-
-            for(let o = 0 ; o <= globalArray1[i].length - 1 ; o++){
-                globalArray1[i][o] = "";
+            globalArray[i] = new Array(3);
+		
+            for(let o = 0 ; o <= globalArray[i].length - 1 ; o++){
+                globalArray[i][o] = "";
             }
 
         }
 	}
 
 function resetArray(){
-        globalArray1 = new Array(70);
+        globalArray = new Array(70);
 	}
 
 
