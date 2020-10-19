@@ -101,14 +101,12 @@ function clearPlaceInArray(brandVehicle, ID){                  //Fonction de ré
 
 function addVehicle(){
         let brandVehicle = "";
-        let heightVehicle = "";
         let colorVehicle = "";
         let IDVehicle = "";
-        while(brandVehicle == "" ||  brandVehicle.includes(" ") || heightVehicle >= MAX_HEIGHT ||  colorVehicle == "" || IDVehicle ==""  ||
-        colorVehicle.includes(" ")|| IDVehicle.includes(" ") || heightVehicle =="" ||  heightVehicle ==" "){
+        while(brandVehicle == "" ||  brandVehicle.includes(" ") || colorVehicle == "" || IDVehicle ==""  ||
+        colorVehicle.includes(" ")|| IDVehicle.includes(" ") || heightVehicle ==" "){
 			
             brandVehicle = prompt("Veuillez insèrer la marque de votre véhicule");
-            heightVehicle = prompt("Veuillez insèrer la taille de votre véhicule");
             colorVehicle = prompt("Veuillez insèrer la couleur de votre véhicule");
             IDVehicle = prompt("Veuillez insèrer la plaque de votre véhicule");
 
