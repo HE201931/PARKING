@@ -104,7 +104,7 @@ function addVehicle(){
         let colorVehicle = "";
         let IDVehicle = "";
         while(brandVehicle == "" ||  brandVehicle.includes(" ") || colorVehicle == "" || IDVehicle ==""  ||
-        colorVehicle.includes(" ")|| IDVehicle.includes(" ") || heightVehicle ==" "){
+        colorVehicle.includes(" ")|| IDVehicle.includes(" ")){
 			
             brandVehicle = prompt("Veuillez insèrer la marque de votre véhicule");
             colorVehicle = prompt("Veuillez insèrer la couleur de votre véhicule");
