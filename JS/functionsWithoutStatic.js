@@ -1,4 +1,4 @@
-let globalArray = new Array(70 );
+let globalArray1 = new Array(70 );
 function initializeArray(){
         for(let i = 0 ; i <= globalArray1.length - 1 ; i++){
 
