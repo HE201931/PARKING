@@ -85,11 +85,11 @@ function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
 
 function clearPlaceInArray(brandVehicle, ID){                  //Fonction de récupération d'un véhicule (retrait d'un véhicule présent dans le parking)
 	
-		for(let i = 0 ; i <= globalArray1.length - 1 ; i++){
-			if (globalArray1[i][0] == brandVehicle &&  globalArray1[i][1] ==  ID){
-				globalArray1[i][0] = "";
-				globalArray1[i][1] = "";
-				globalArray1[i][2] = "";
+		for(let i = 0 ; i <= globalArray.length - 1 ; i++){
+			if (globalArray[i][0] == brandVehicle &&  globalArray1[i][1] ==  ID){
+				globalArray[i][0] = "";
+				globalArray[i][1] = "";
+				globalArray[i][2] = "";
 				console.log(`Réservation terminée, vous pouvez aller récupérer le véhicule. Bonne journée !`);
 				break;
 			}
@@ -124,7 +124,7 @@ function addVehicle(){
 	
 	function beginWithThisFunction(){       //Fonction run de départ, celle ci sera init a chaque fois qu'un utilisateur veut faire une demande 
     
-        if(globalArray1.every( elem => elem == undefined) == true){initializeArray();}
+        if(globalArray.every( elem => elem == undefined) == true){initializeArray();}
 		
 		let demande = prompt("Voulez-vous reserver une place (RES) ou recupérer un véhicule (RECUP) ? "); 
 		
