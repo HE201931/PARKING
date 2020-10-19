@@ -20,9 +20,7 @@ function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
 	
 		if(placeNumber = 'N'){          //Annulation réservation de place
 			console.log("Reservation annulée, bonne journée !"); 
-		}
-	
-		if(placeNumber = 'A'){      //Choix d'attribution place automatique
+		}else if(placeNumber = 'A'){      //Choix d'attribution place automatique
 			
 			for(let i = 0 ; i <= globalArray.length - 1 ; i++){     //Si place libre trouvée
 
@@ -41,7 +39,7 @@ function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
 
 			}
 			
-		}else{          //Si choix de place demandé par client
+		}else if(placeNumber > 0 && placeNumber <= 70){          //Si choix de place demandé par client
 			if(globalArray[placeNumber][0] ==""){
 				globalArray[placeNumber][0] = marqueVehicle;
 				globalArray[placeNumber][1] = plaqueVehicle;
@@ -50,7 +48,7 @@ function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
 				console.log("Cette place est déjà prise, choix de la place la plus proche pour vous..."); 
 				for(i = placeNumber + 1; i <= globalArray.length; i++){ //Selec. auto place plus proche vers haut du tableau
 				
-					if (globalArray[i][0] == "" &&  globalArray[i][1] == "" ){
+					if (globalArray[i][0] == "" && globalArray[i][1] == "" ){
 					globalArray[i][0] = marqueVehicle;
 					globalArray[i][1] = plaqueVehicle;
 					globalArray[i][2] = colorVehicle;
@@ -79,6 +77,8 @@ function addInBigArray(marqueVehicle, plaqueVehicle ,colorVehicle, placeNumber){
 					}
 				}
 			}
+		}else{
+			console.log("La place choisie n'existe pas, bonne journée.");
 		}
     }
 
